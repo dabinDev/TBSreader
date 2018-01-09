@@ -1,8 +1,10 @@
- 
- <h1/> https://x5.tencent.com/tbs/ 腾讯浏览服务    <h1/>
- <h3/>1.腾讯浏览器集成 <h3>
- <h3/> 2.tbs文件查看能力 <h3>
- <h3/>  可以直接以module方式关联，需要查看网络上的图片，直接用FileDisplayActivity的OpenActivity方法即可 打开即可
- 文件下载已经加上，用的是okgo <h3>
- 
- <h2/><image scr="img/gif.gif"></image><h2>
+# https://x5.tencent.com/tbs/ 腾讯浏览服务 
+### 1.腾讯浏览器集成
+###  2.tbs文件查看能力
+![文件查看/浏览器](https://github.com/Knowledgeables/TBSreader/blob/master/img/gif.gif "文件查看/浏览器")
+### 使用方式：
+#### 支持查看网络文件（注意打开权限）
+         <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
