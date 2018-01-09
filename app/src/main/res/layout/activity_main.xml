@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/open_browser"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorAccent"
+        android:text="打开tbs浏览器"
+        android:textColor="@color/colorWhite"
+        android:textSize="19sp" />
+
+    <Button
+        android:id="@+id/open_word"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorAccent"
+        android:text="打开word"
+        android:textColor="@color/colorWhite"
+        android:textSize="19sp" />
+
+    <Button
+        android:id="@+id/open_excell"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorAccent"
+        android:text="打开excell"
+        android:textColor="@color/colorWhite"
+        android:textSize="19sp" />
+
+    <Button
+        android:id="@+id/open_pdf"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorAccent"
+        android:text="打开pdf"
+        android:textColor="@color/colorWhite"
+        android:textSize="19sp" />
+
+</LinearLayout>
