@@ -13,3 +13,8 @@
     FileDisplayActivity.openActivity(this, "http://www.xiaobeifeng.top/file/123pdf.pdf");
     
 	
+#### 其他解决方式
+1.永中云
+[http://www.dcsapi.com/](http://www.dcsapi.com/ "http://www.dcsapi.com/")
+- 这个用起来也很方便，不需要做什么操作，注册永中云账号，在管理后台吧你们服务器的域名添加信任，然后在你移动端本地用X5浏览器（用本地浏览器需要设置的东西就比较多了，js插件什么的，推荐使用X5浏览器），打开永中云给你拼接后的url就可以直接查看。
+- 注*每天每个服务器域名对应文件，免费用户解析只有500次，如果次数超过当天就无法使用，所以自己做做测试什么的还可以
