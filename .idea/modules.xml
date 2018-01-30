@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TBSreader.iml" filepath="$PROJECT_DIR$/TBSreader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TBSreader.iml" filepath="$PROJECT_DIR$/.idea/TBSreader.iml" />
+      <module fileurl="file://G:\AndroidProject\TBSreader\TBSreader.iml" filepath="G:\AndroidProject\TBSreader\TBSreader.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://G:\AndroidProject\TBSreader\app\app.iml" filepath="G:\AndroidProject\TBSreader\app\app.iml" />
     </modules>
   </component>
 </project>

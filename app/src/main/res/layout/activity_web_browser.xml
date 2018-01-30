@@ -4,8 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <github.benjamin.tbsreader.utils.X5WebView
-        android:id="@+id/twv_test"
+    <!--  <github.benjamin.tbsreader.utils.
+          android:id="@+id/twv_test"
+          android:layout_width="match_parent"
+          android:layout_height="match_paret" />-->
+    <github.benjamin.tbsreader.bridge.TbsBridgeWebView
+        android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </LinearLayout>
