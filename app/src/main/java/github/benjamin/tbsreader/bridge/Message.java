@@ -9,7 +9,6 @@ import java.util.List;
 
 /**
  * data of bridge
- * @author haoqing
  *
  */
 public class Message {

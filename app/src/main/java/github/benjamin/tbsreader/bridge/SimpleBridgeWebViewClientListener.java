@@ -14,7 +14,6 @@ import com.tencent.smtt.export.external.interfaces.WebResourceResponse;
 import com.tencent.smtt.sdk.WebView;
 
 /**
- * @author hjhrq1991 created at 2017/12/4 17 30 .
  *         description:
  */
 

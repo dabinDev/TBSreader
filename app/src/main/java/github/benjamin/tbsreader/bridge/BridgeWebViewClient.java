@@ -16,9 +16,6 @@ import com.tencent.smtt.sdk.WebViewClient;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
-/**
- * @author hjhrq1991 created at 8/22/16 14 41.
- */
 public class BridgeWebViewClient extends WebViewClient {
     private TbsBridgeWebView webView;
     /**

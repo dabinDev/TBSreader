@@ -1,7 +1,6 @@
 package github.benjamin.tbsreader.bridge;
 
 /**
- * @author hjhrq1991 created at 8/22/16 14 41.
  * 配置文件
  */
 public class BridgeConfig {

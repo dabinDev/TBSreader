@@ -8,9 +8,16 @@
           android:id="@+id/twv_test"
           android:layout_width="match_parent"
           android:layout_height="match_paret" />-->
+    <Button
+        android:id="@+id/androidCallJs"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="AndroidCallJS"
+        />
     <github.benjamin.tbsreader.bridge.TbsBridgeWebView
         android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 
 </LinearLayout>

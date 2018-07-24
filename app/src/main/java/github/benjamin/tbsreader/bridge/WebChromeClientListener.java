@@ -16,7 +16,6 @@ import com.tencent.smtt.sdk.WebStorage;
 import com.tencent.smtt.sdk.WebView;
 
 /**
- * @author hjhrq1991 created at 16/11/21 10 38.
  */
 public class WebChromeClientListener implements OnWebChromeClientListener {
 

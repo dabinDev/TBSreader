@@ -466,7 +466,6 @@ public class TbsBridgeWebView extends WebView implements WebViewJavascriptBridge
      * @param customJs 自定义桥名，可为空，为空时使用默认桥名
      *                 自定义桥名回调，如用自定义桥名，请copy一份WebViewJavascriptBridge.js替换文件名
      *                 及脚本内所有包含"WebViewJavascriptBridge"的内容为你的自定义桥名
-     * @author hjhrq1991 created at 6/20/16 17:32.
      */
     public void setCustom(String customJs) {
         BridgeConfig.customJs = !TextUtils.isEmpty(customJs) ? customJs : BridgeConfig.defaultJs;

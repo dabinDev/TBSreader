@@ -12,10 +12,6 @@ import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
 import com.tencent.smtt.export.external.interfaces.WebResourceResponse;
 import com.tencent.smtt.sdk.WebView;
 
-/**
- * @author hjhrq1991 created at 5/10/16 15:12.
- *         超链接回调
- */
 public interface BridgeWebViewClientListener {
 
     /**
@@ -23,7 +19,6 @@ public interface BridgeWebViewClientListener {
      * @param url  url
      * @return boolean
      * 非js桥的超链接回调回去自行处理
-     * @author hjhrq1991 created at 5/10/16 15:12.
      */
     boolean shouldOverrideUrlLoading(WebView view, String url);
 

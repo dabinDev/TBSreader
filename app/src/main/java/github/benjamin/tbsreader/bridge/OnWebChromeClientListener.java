@@ -14,10 +14,6 @@ import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebStorage;
 import com.tencent.smtt.sdk.WebView;
 
-/**
- * @author hjhrq1991 created at 16/11/21 10 23.
- *
- */
 public interface OnWebChromeClientListener {
 
     void onReceivedTitle(WebView view, String title);

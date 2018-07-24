@@ -10,7 +10,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
+import android.webkit.JavascriptInterface;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.tencent.smtt.export.external.interfaces.SslError;
@@ -39,6 +42,7 @@ public class WebBrowserActivity extends Activity {
     private String file;
     TbsBridgeWebView webView;
     private String TAG = "WebBrowserActivity";
+    private Button mAndroidCallJs;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,9 +54,11 @@ public class WebBrowserActivity extends Activity {
         initView();
     }
 
+    @SuppressWarnings("deprecation")
+    @JavascriptInterface
     private void initView() {
         webView = findViewById(R.id.webView);
-
+        mAndroidCallJs = findViewById(R.id.androidCallJs);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setSaveFormData(false);
         webView.getSettings().setSavePassword(false);
@@ -65,10 +71,12 @@ public class WebBrowserActivity extends Activity {
         webView.getSettings().setUseWideViewPort(true);
         // 自适应屏幕.
         webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
-//        mWwebViewebView.getSettings().setUserAgentString(Constant.useragent);
-
-
+        webView.setBridgeWebViewClientListener(new SimpleBridgeWebViewClientListener());
+        //=======================此方法必须调用==========================
+        webView.setDefaultHandler(new DefaultHandler());
         //=======================js桥使用改方法替换原有setWebViewClient()方法==========================
+        //=======================js桥使用改方法替换原有setWebViewClient()方法==========================
+
         webView.setBridgeWebViewClientListener(new SimpleBridgeWebViewClientListener() {
 
             @Override
@@ -84,6 +92,7 @@ public class WebBrowserActivity extends Activity {
 
             @Override
             public void onPageFinished(WebView view, String url) {
+
 
             }
 
@@ -152,45 +161,31 @@ public class WebBrowserActivity extends Activity {
 
         webView.loadUrl(file);
 
-        //description：如需使用自定义桥名，调用以下方法即可，
-        // 传空或不调用setCustom方法即使用默认桥名。
-        // 默认桥名：WebViewJavascriptBridge
-        //=======================使用自定义桥名时调用以下代码即可==========================
-//        webView.setCustom("桥名");
+
+        // webView.setCustom("桥名");
         webView.setCustom("TestJavascriptBridge");
 
         //=======================以下4个web调用native示例方法==========================
-        webView.registerHandler("initSignNetPay", new BridgeHandler() {
+        webView.registerHandler("jsCallPhone", new BridgeHandler() {
             @Override
             public void handler(String data, CallBackFunction function) {
                 Log.i(TAG, "回传结果：" + data);
                 Toast.makeText(WebBrowserActivity.this, data, Toast.LENGTH_SHORT).show();
             }
         });
-
-        webView.registerHandler("initSignNetShare", new BridgeHandler() {
-
+        mAndroidCallJs.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void handler(String data, CallBackFunction function) {
-                Log.i(TAG, "回传结果：" + data);
-                Toast.makeText(WebBrowserActivity.this, data, Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {//写死的字符串需要注意
+                String message = "javascript:phoneCallJs(\"" + "你好 大胡子" + "\")";//需要放到pagefind里面或者在loadurl后面否则会返回null
+                webView.loadUrl(message);
             }
         });
 
-        /*//=======================招行一网通js桥回调==========================
-        webView.registerHandler("initCmbSignNetPay", new BridgeHandler() {
-
-            @Override
-            public void handler(String data, CallBackFunction function) {
-                //在这里解析回调数据并执行处理
-                Log.i(TAG, "回传结果：" + data);
-            }
-        });*/
     }
 
     public static void openActivity(Context context) {
         Intent intent = new Intent(context, WebBrowserActivity.class);
-        intent.putExtra("filePath", "http://www.xiaobeifeng.top/YunnaGuide/html/test.html");
+        intent.putExtra("filePath", "http://www.xiaobeifeng.top/Bridge/test.html");
         context.startActivity(intent);
     }
 
