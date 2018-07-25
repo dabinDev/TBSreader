@@ -25,12 +25,17 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    buildToolsVersion '27.0.3'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:27.0.2'
-    compile files('libs/tbs_sdk_thirdapp_v3.2.0.1104_43200_sharewithdownload_withfilereader_withoutGame_obfs_20170609_115346.jar')
     //必须使用
     compile 'com.lzy.net:okgo:3.0.4'
+    implementation files('libs/tbs_sdk_thirdapp_v3.6.0.1315_43612_sharewithdownload_withoutGame_obfs_20180718_102847.jar')
 }
