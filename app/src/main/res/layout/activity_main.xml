@@ -45,4 +45,25 @@
         android:textColor="@color/colorWhite"
         android:textSize="19sp" />
 
+    <Button
+        android:id="@+id/open_music"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorAccent"
+        android:text="打开音乐"
+        android:textColor="@color/colorWhite"
+        android:textSize="19sp" />
+
+    <Button
+        android:id="@+id/open_video"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorAccent"
+        android:text="打开视频"
+        android:textColor="@color/colorWhite"
+        android:textSize="19sp" />
+
+
 </LinearLayout>
