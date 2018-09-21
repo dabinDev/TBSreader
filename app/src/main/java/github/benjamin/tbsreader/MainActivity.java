@@ -2,7 +2,6 @@ package github.benjamin.tbsreader;
 
 import android.app.Activity;
 import android.graphics.SurfaceTexture;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -23,7 +22,7 @@ import com.tencent.smtt.sdk.TbsVideo;
  * Class description:
  */
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener, TbsMediaPlayer.TbsMediaPlayerListener {
 
 
     private Button mBrowserOpen;
@@ -64,94 +63,98 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 WebBrowserActivity.openActivity(this);
                 break;
             case R.id.open_word:// TODO 18/01/09
-                FileDisplayActivity.openActivity(this, "http://www.xiaobeifeng.top/file/123doc.doc");
+                FileDisplayActivity.openActivity(this, "http://www.dabinDev.cn/file/123doc.doc");
                 break;
             case R.id.open_excell:// TODO 18/01/09
-                FileDisplayActivity.openActivity(this, "http://www.xiaobeifeng.top/file/123xls.xls");
+                FileDisplayActivity.openActivity(this, "http://www.dabinDev.cn/file/123xls.xls");
                 break;
             case R.id.open_pdf:// TODO 18/01/09
-                FileDisplayActivity.openActivity(this, "http://www.xiaobeifeng.top/file/123pdf.pdf");
+                FileDisplayActivity.openActivity(this, "http://www.dabinDev.cn/file/123pdf.pdf");
                 break;
             case R.id.open_music:// TODO 18/01/09
                 TbsMediaFactory factory = new TbsMediaFactory(this);
                 TbsMediaPlayer player = factory.createPlayer();
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    player.setSurfaceTexture(new SurfaceTexture(true));
+                player.setSurfaceTexture(new SurfaceTexture(true));
+                if (player.isAvailable()) {
+                    player.setVolume(1f);
+                    player.startPlay("http://www.dabinDev.cn/file/123hope.mp3", new Bundle());
+                    player.setPlayerListener(this);
                 }
-                player.setVolume(1f);
-                player.setPlayerListener(new TbsMediaPlayer.TbsMediaPlayerListener() {
-                    @Override
-                    public void onPlayerPrepared(long l, int i, int i1, int i2, int i3) {
-                        Log.e("TbsMediaPlayerListener","onPlayerPrepared");
-
-                    }
-
-                    @Override
-                    public void onPlayerExtra(int i, Object o) {
-                        Log.e("TbsMediaPlayerListener","onPlayerExtra");
-
-                    }
-
-                    @Override
-                    public void onPlayerError(String s, int i, int i1, Throwable throwable) {
-                        Log.e("TbsMediaPlayerListener","onPlayerError"+throwable.getMessage());
-                    }
-
-                    @Override
-                    public void onPlayerInfo(int i, int i1) {
-                        Log.e("TbsMediaPlayerListener","onPlayerInfo--"+i+i1);
-                    }
-
-                    @Override
-                    public void onPlayerPlaying() {
-                        Log.e("TbsMediaPlayerListener","onPlayerPlaying");
-
-                    }
-
-                    @Override
-                    public void onPlayerProgress(long l) {
-                        Log.e("TbsMediaPlayerListener","onPlayerProgress---"+l);
-
-                    }
-
-                    @Override
-                    public void onPlayerSubtitle(String s) {
-                        Log.e("TbsMediaPlayerListener","onPlayerSubtitle---"+s);
-
-                    }
-
-                    @Override
-                    public void onPlayerPaused() {
-                        Log.e("TbsMediaPlayerListener","onPlayerPaused");
-
-                    }
-
-                    @Override
-                    public void onPlayerSeeked(long l) {
-                        Log.e("TbsMediaPlayerListener","onPlayerSeeked");
-
-                    }
-
-                    @Override
-                    public void onPlayerCompleted() {
-                        Log.e("TbsMediaPlayerListener","onPlayerCompleted");
-
-                    }
-
-                    @Override
-                    public void onBufferingUpdate(float v) {
-                        Log.e("TbsMediaPlayerListener","onBufferingUpdate---"+String.valueOf(v));
-
-                    }
-                });
-                player.startPlay("http://www.xiaobeifeng.top/file/123hope.mp3",new Bundle());
                 break;
             case R.id.open_video:// TODO 18/01/09
-                TbsVideo.openVideo(this, "http://www.xiaobeifeng.top/file/12312312.mp4");
+                Bundle extraData = new Bundle();
+                extraData.putInt("screenMode", 102);
+                extraData.putBoolean("supportLiteWnd", false);
+                TbsVideo.openVideo(this, "http://www.dabinDev.cn/file/12312312.mp4", extraData);
                 break;
             default:
                 break;
         }
     }
 
+    @Override
+    public void onPlayerPrepared(long l, int i, int i1, int i2, int i3) {
+        Log.e("audio", "onPlayerPrepared");
+
+    }
+
+    @Override
+    public void onPlayerExtra(int i, Object o) {
+        Log.e("audio", "onPlayerExtra");
+
+    }
+
+    @Override
+    public void onPlayerError(String s, int i, int i1, Throwable throwable) {
+        Log.e("audio", "onPlayerError");
+
+    }
+
+    @Override
+    public void onPlayerInfo(int i, int i1) {
+        Log.e("audio", "onPlayerInfo");
+
+    }
+
+    @Override
+    public void onPlayerPlaying() {
+        Log.e("audio", "onPlayerPlaying");
+
+    }
+
+    @Override
+    public void onPlayerProgress(long l) {
+        Log.e("audio", "onPlayerProgress");
+
+    }
+
+    @Override
+    public void onPlayerSubtitle(String s) {
+        Log.e("audio", "onPlayerSubtitle");
+
+    }
+
+    @Override
+    public void onPlayerPaused() {
+        Log.e("audio", "onPlayerPaused");
+
+    }
+
+    @Override
+    public void onPlayerSeeked(long l) {
+        Log.e("audio", "onPlayerSeeked");
+
+    }
+
+    @Override
+    public void onPlayerCompleted() {
+        Log.e("audio", "onPlayerCompleted");
+
+    }
+
+    @Override
+    public void onBufferingUpdate(float v) {
+        Log.e("audio", "onBufferingUpdate");
+
+    }
 }

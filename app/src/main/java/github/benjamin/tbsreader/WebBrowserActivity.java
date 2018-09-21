@@ -185,7 +185,13 @@ public class WebBrowserActivity extends Activity {
 
     public static void openActivity(Context context) {
         Intent intent = new Intent(context, WebBrowserActivity.class);
-        intent.putExtra("filePath", "http://www.xiaobeifeng.top/Bridge/test.html");
+        intent.putExtra("filePath", "http://www.dabinDev.cn/Bridge/test.html");
+        context.startActivity(intent);
+    }
+
+    public static void openActivity(Context context,String file) {
+        Intent intent = new Intent(context, WebBrowserActivity.class);
+        intent.putExtra("filePath", file);
         context.startActivity(intent);
     }
 
