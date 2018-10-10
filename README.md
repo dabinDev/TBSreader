@@ -70,8 +70,14 @@ JS调用Android方法
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 #### 打开文件（word/excell/pdf/以及其他很多办公文档格式）
-    FileDisplayActivity.openActivity(this, "http://www.xiaobeifeng.top/file/123pdf.pdf");
+    FileDisplayActivity.openActivity(this, "http://www.dabinDev.cn/file/123pdf.pdf");
 
+
+#### 打开文件 视频
+   Bundle extraData = new Bundle();
+                   extraData.putInt("screenMode", 102);
+                   extraData.putBoolean("supportLiteWnd", false);
+                   TbsVideo.openVideo(this, "http://www.dabinDev.cn/file/12312312.mp4", extraData);
 
 前端页面放在压缩目录 `bridge`里面
 #### 其他解决方式
