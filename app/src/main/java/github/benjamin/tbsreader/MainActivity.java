@@ -1,16 +1,15 @@
 package github.benjamin.tbsreader;
 
 import android.app.Activity;
-import android.graphics.SurfaceTexture;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.tencent.smtt.sdk.TbsMediaFactory;
 import com.tencent.smtt.sdk.TbsMediaPlayer;
 import com.tencent.smtt.sdk.TbsVideo;
+import com.tencent.smtt.sdk.ValueCallback;
 
 /**
  * Project :  TBSreader.
@@ -22,7 +21,7 @@ import com.tencent.smtt.sdk.TbsVideo;
  * Class description:
  */
 
-public class MainActivity extends Activity implements View.OnClickListener, TbsMediaPlayer.TbsMediaPlayerListener {
+public class MainActivity extends Activity implements View.OnClickListener, TbsMediaPlayer.TbsMediaPlayerListener, ValueCallback<Boolean> {
 
 
     private Button mBrowserOpen;
@@ -72,14 +71,17 @@ public class MainActivity extends Activity implements View.OnClickListener, TbsM
                 FileDisplayActivity.openActivity(this, "http://www.dabinDev.cn/file/123pdf.pdf");
                 break;
             case R.id.open_music:// TODO 18/01/09
-                TbsMediaFactory factory = new TbsMediaFactory(this);
+                /*TbsMediaFactory factory = new TbsMediaFactory(this);
                 TbsMediaPlayer player = factory.createPlayer();
-                player.setSurfaceTexture(new SurfaceTexture(true));
                 if (player.isAvailable()) {
                     player.setVolume(1f);
                     player.startPlay("http://www.dabinDev.cn/file/123hope.mp3", new Bundle());
                     player.setPlayerListener(this);
-                }
+                }*/
+                Bundle mp3Data = new Bundle();
+                mp3Data.putInt("screenMode", 102);
+                mp3Data.putBoolean("supportLiteWnd", false);
+                TbsVideo.openVideo(this, "http://www.dabinDev.cn/file/12312312.mp4", mp3Data);
                 break;
             case R.id.open_video:// TODO 18/01/09
                 Bundle extraData = new Bundle();
@@ -155,6 +157,11 @@ public class MainActivity extends Activity implements View.OnClickListener, TbsM
     @Override
     public void onBufferingUpdate(float v) {
         Log.e("audio", "onBufferingUpdate");
+
+    }
+
+    @Override
+    public void onReceiveValue(Boolean aBoolean) {
 
     }
 }

@@ -170,7 +170,7 @@ public class WebBrowserActivity extends Activity {
             @Override
             public void handler(String data, CallBackFunction function) {
                 Log.i(TAG, "回传结果：" + data);
-                Toast.makeText(WebBrowserActivity.this, data, Toast.LENGTH_SHORT).show();
+                Toast.makeText(WebBrowserActivity.this, data, Toast.LENGTH_LONG).show();
             }
         });
         mAndroidCallJs.setOnClickListener(new View.OnClickListener() {
